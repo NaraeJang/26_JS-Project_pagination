@@ -6,11 +6,13 @@ import displayButtons from "./displayButtons.js";
 const title = document.querySelector(".section-title h1");
 
 const init = async () => {
-  const follwers = await fetchFollowers();
+  const followers = await fetchFollowers();
 
   title.textContent = `pagination`;
 
-  displayFollowers(follwers);
+  displayFollowers(paginate(followers)[0]);
+  const page = paginate(followers);
+  console.log(page);
 };
 
 window.addEventListener("load", init);
